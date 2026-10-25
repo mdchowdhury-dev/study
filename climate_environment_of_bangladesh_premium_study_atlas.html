@@ -1,0 +1,1189 @@
+<!doctype html>
+<html lang="en" data-theme="emerald">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Climate & Environment of Bangladesh — Premium Study Atlas</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: { sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'] },
+        colors: {
+          brand: {
+            teal: '#14B8A6',
+            emerald: '#059669',
+            navy: '#0F172A',
+            gold: '#F59E0B'
+          }
+        }
+      }
+    }
+  }
+</script>
+<style>
+/* Modern Theme Design Tokens */
+:root {
+  --bg-gradient: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 50%, #f1f5f9 100%);
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-border: rgba(203, 213, 225, 0.6);
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --accent-primary: #0d9488;
+  --accent-secondary: #0284c7;
+  --accent-gradient: linear-gradient(135deg, #0d9488, #0284c7);
+  --topbar-bg: rgba(255, 255, 255, 0.88);
+  --nav-active: #0d9488;
+  --shadow-sm: 0 4px 20px -2px rgba(13, 148, 136, 0.08);
+  --shadow-lg: 0 20px 40px -15px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="midnight"] {
+  --bg-gradient: linear-gradient(135deg, #090d16 0%, #0f172a 50%, #172554 100%);
+  --card-bg: rgba(15, 23, 42, 0.78);
+  --card-border: rgba(51, 65, 85, 0.7);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent-primary: #2dd4bf;
+  --accent-secondary: #38bdf8;
+  --accent-gradient: linear-gradient(135deg, #14b8a6, #38bdf8);
+  --topbar-bg: rgba(15, 23, 42, 0.90);
+  --nav-active: #2dd4bf;
+  --shadow-sm: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="sunset"] {
+  --bg-gradient: linear-gradient(135deg, #fff7ed 0%, #fef3c7 50%, #ffedd5 100%);
+  --card-bg: rgba(255, 255, 255, 0.88);
+  --card-border: rgba(253, 186, 116, 0.5);
+  --text-main: #431407;
+  --text-muted: #78350f;
+  --accent-primary: #ea580c;
+  --accent-secondary: #d97706;
+  --accent-gradient: linear-gradient(135deg, #ea580c, #d97706);
+  --topbar-bg: rgba(255, 247, 237, 0.92);
+  --nav-active: #ea580c;
+  --shadow-sm: 0 4px 20px -2px rgba(234, 88, 12, 0.1);
+  --shadow-lg: 0 20px 40px -15px rgba(67, 20, 7, 0.12);
+}
+
+[data-theme="parchment"] {
+  --bg-gradient: linear-gradient(135deg, #fbf7ee 0%, #f4efe2 50%, #eae3d2 100%);
+  --card-bg: rgba(253, 251, 247, 0.92);
+  --card-border: rgba(212, 201, 176, 0.8);
+  --text-main: #2c2523;
+  --text-muted: #655a52;
+  --accent-primary: #8c6d46;
+  --accent-secondary: #5c7054;
+  --accent-gradient: linear-gradient(135deg, #8c6d46, #5c7054);
+  --topbar-bg: rgba(251, 247, 238, 0.94);
+  --nav-active: #8c6d46;
+  --shadow-sm: 0 4px 15px -2px rgba(140, 109, 70, 0.08);
+  --shadow-lg: 0 15px 35px -10px rgba(44, 37, 35, 0.12);
+}
+
+body {
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  min-height: 100vh;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: background 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.glass-panel:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.glass-nav {
+  background: var(--topbar-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--card-border);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.4); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.7); }
+
+/* Card Animations & Reveal Effects */
+.reveal-card {
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-card.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Page Transitions */
+.page-view {
+  display: none;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.page-view.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Flip Card Styles */
+.perspective-1000 { perspective: 1000px; }
+.transform-style-3d { transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+.backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.rotate-y-180 { transform: rotateY(180deg); }
+
+/* Custom Progress Bar */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--accent-gradient);
+  z-index: 100;
+  transition: width 0.15s ease-out;
+}
+
+/* Dynamic Ripple Effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+.ripple::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .5s, opacity 1s;
+}
+.ripple:active::after {
+  transform: scale(0, 0);
+  opacity: .3;
+  transition: 0s;
+}
+
+/* Canvas River Wave Background */
+#river-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+}
+</style>
+</head>
+<body class="pb-24 lg:pb-10 pt-16 selection:bg-teal-500 selection:text-white">
+
+<!-- Dynamic River Canvas Background -->
+<canvas id="river-canvas"></canvas>
+
+<!-- Top Reading Progress Indicator -->
+<div id="progress-bar" style="width: 0%;"></div>
+
+<!-- Top Sticky Header -->
+<header class="glass-nav fixed top-0 left-0 right-0 z-40 transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-3">
+    <!-- Mobile Menu Trigger -->
+    <button onclick="toggleMobileDrawer()" class="lg:hidden p-2 rounded-xl border border-slate-200/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-200 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition" aria-label="Toggle Navigation">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+
+    <!-- Brand Header -->
+    <div class="flex items-center gap-3 cursor-pointer select-none" onclick="goPage('home')">
+      <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-teal-600 to-sky-500 flex items-center justify-center text-white font-black text-lg shadow-md shadow-teal-500/20">
+        BD
+      </div>
+      <div class="hidden sm:block">
+        <h1 class="font-extrabold text-sm tracking-tight leading-none text-slate-900 dark:text-white">CLIMATE & ENVIRONMENT</h1>
+        <p class="text-[10px] font-bold tracking-widest text-teal-600 dark:text-teal-400 uppercase mt-0.5">Study Atlas of Bangladesh</p>
+      </div>
+    </div>
+
+    <!-- Live Search Input -->
+    <div class="flex-1 max-w-md mx-2">
+      <div class="relative">
+        <input type="text" id="global-search" placeholder="Search topics, facts, numbers..." class="w-full pl-9 pr-8 py-2 text-xs md:text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-100/70 dark:bg-slate-800/70 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 transition shadow-inner">
+        <svg class="w-4 h-4 absolute left-3 top-2.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <button id="clear-search" onclick="clearSearch()" class="hidden absolute right-2.5 top-2.5 text-slate-400 hover:text-slate-600 text-xs">✕</button>
+      </div>
+    </div>
+
+    <!-- Theme Switcher Dropdown -->
+    <div class="relative group">
+      <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200/60 dark:border-slate-700/60 text-xs font-bold bg-white/50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-700 transition" aria-label="Select Theme">
+        <span id="theme-icon">🌿</span>
+        <span class="hidden md:inline text-slate-700 dark:text-slate-200" id="theme-label">Emerald</span>
+        <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+
+      <div class="absolute right-0 top-full mt-2 w-44 glass-panel rounded-2xl p-1.5 hidden group-hover:block hover:block z-50 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in slide-in-from-top-2 duration-200">
+        <button onclick="setTheme('emerald')" class="w-full text-left px-3 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-teal-950/40 flex items-center gap-2"><span>🌿</span> Emerald Monsoon</button>
+        <button onclick="setTheme('midnight')" class="w-full text-left px-3 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-800 flex items-center gap-2"><span>🌙</span> Midnight Delta</button>
+        <button onclick="setTheme('sunset')" class="w-full text-left px-3 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-amber-50 dark:hover:bg-amber-950/40 flex items-center gap-2"><span>🌅</span> Bengal Sunset</button>
+        <button onclick="setTheme('parchment')" class="w-full text-left px-3 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-stone-100 dark:hover:bg-stone-800 flex items-center gap-2"><span>📜</span> Paper Parchment</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Layout Grid -->
+<div class="max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-6 relative z-10">
+
+  <!-- Desktop Sidebar Navigation -->
+  <aside class="hidden lg:block sticky top-20 h-[calc(100vh-100px)] glass-panel rounded-3xl p-4 overflow-y-auto space-y-1.5">
+    <div class="px-3 py-2 text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">Modules Nav</div>
+    <button class="nav-btn active w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-xs font-bold text-slate-700 dark:text-slate-200 transition-all hover:bg-teal-50 dark:hover:bg-teal-950/40" data-page="home"><span>⌂</span> Overview</button>
+    <button class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-xs font-bold text-slate-700 dark:text-slate-200 transition-all hover:bg-teal-50 dark:hover:bg-teal-950/40" data-page="climate"><span>☁</span> Climate & Change</button>
+    <button class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-xs font-bold text-slate-700 dark:text-slate-200 transition-all hover:bg-teal-50 dark:hover:bg-teal-950/40" data-page="hazards"><span>⚠</span> Hazards & Events</button>
+    <button class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-xs font-bold text-slate-700 dark:text-slate-200 transition-all hover:bg-teal-50 dark:hover:bg-teal-950/40" data-page="impacts"><span>↘</span> Environmental Impacts</button>
+    <button class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-xs font-bold text-slate-700 dark:text-slate-200 transition-all hover:bg-teal-50 dark:hover:bg-teal-950/40" data-page="biodiversity"><span>🌿</span> Flora & Forests</button>
+    <button class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-xs font-bold text-slate-700 dark:text-slate-200 transition-all hover:bg-teal-50 dark:hover:bg-teal-950/40" data-page="fauna"><span>🐅</span> Fauna & Conservation</button>
+    <button class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-xs font-bold text-slate-700 dark:text-slate-200 transition-all hover:bg-teal-50 dark:hover:bg-teal-950/40" data-page="society"><span>🏘</span> Health & Livelihoods</button>
+    <button class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-xs font-bold text-slate-700 dark:text-slate-200 transition-all hover:bg-teal-50 dark:hover:bg-teal-950/40" data-page="adaptation"><span>◈</span> Adaptation & Management</button>
+    <button class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-xs font-bold text-slate-700 dark:text-slate-200 transition-all hover:bg-teal-50 dark:hover:bg-teal-950/40" data-page="institutions"><span>◎</span> Disaster Preparedness</button>
+    <button class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-xs font-bold text-slate-700 dark:text-slate-200 transition-all hover:bg-teal-50 dark:hover:bg-teal-950/40" data-page="interactive"><span>🎮</span> Interactive Drill & Deck</button>
+    <button class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-xs font-bold text-slate-700 dark:text-slate-200 transition-all hover:bg-teal-50 dark:hover:bg-teal-950/40" data-page="revision"><span>✦</span> Quick Memorization</button>
+    
+    <div class="pt-6 px-3 border-t border-slate-200 dark:border-slate-700/50 mt-4 text-[11px] text-slate-400 font-medium">
+      Designed for mobile & desktop study.
+      <div class="mt-1 font-semibold text-slate-500 dark:text-slate-400">By Md. Sayem Chowdhury</div>
+    </div>
+  </aside>
+
+  <!-- Content Containers -->
+  <main class="min-w-0">
+
+    <!-- Overview / Home -->
+    <section id="page-home" class="page-view active space-y-6">
+      <div class="reveal-card glass-panel rounded-3xl p-6 md:p-10 relative overflow-hidden bg-gradient-to-br from-slate-900 via-teal-950 to-slate-900 text-white shadow-2xl">
+        <div class="absolute top-0 right-0 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 text-xs font-bold uppercase tracking-wider mb-4 border border-teal-500/30">
+          ✨ Interactive Study Engine
+        </div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight mb-4">
+          Climate & Environment <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-sky-400">of Bangladesh</span>
+        </h1>
+        <p class="text-slate-300 text-sm md:text-base max-w-2xl leading-relaxed mb-6">
+          A comprehensive interactive study atlas detailing Bangladesh's tropical monsoon dynamics, riverine delta geography, hazards, ecological impacts, biodiversity, and strategic adaptation frameworks.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <button onclick="goPage('climate')" class="ripple px-5 py-3 rounded-2xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-extrabold text-xs md:text-sm transition shadow-lg shadow-teal-500/25">Start Exploring Modules →</button>
+          <button onclick="goPage('interactive')" class="ripple px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-extrabold text-xs md:text-sm backdrop-blur-md border border-white/20 transition">Practice Flashcards ⚡</button>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Counters -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
+        <div class="reveal-card glass-panel rounded-2xl p-4 text-center">
+          <div class="text-2xl md:text-3xl font-black text-teal-600 dark:text-teal-400 counter-val" data-target="1.0" data-suffix="°C">+0.0°C</div>
+          <div class="text-[11px] font-bold text-slate-500 dark:text-slate-400 mt-1">Projected by 2030</div>
+        </div>
+        <div class="reveal-card glass-panel rounded-2xl p-4 text-center">
+          <div class="text-2xl md:text-3xl font-black text-teal-600 dark:text-teal-400 counter-val" data-target="6000" data-suffix="+">0</div>
+          <div class="text-[11px] font-bold text-slate-500 dark:text-slate-400 mt-1">Plant Species</div>
+        </div>
+        <div class="reveal-card glass-panel rounded-2xl p-4 text-center">
+          <div class="text-2xl md:text-3xl font-black text-teal-600 dark:text-teal-400 counter-val" data-target="1403" data-suffix="">0</div>
+          <div class="text-[11px] font-bold text-slate-500 dark:text-slate-400 mt-1">Vertebrate Species</div>
+        </div>
+        <div class="reveal-card glass-panel rounded-2xl p-4 text-center">
+          <div class="text-2xl md:text-3xl font-black text-teal-600 dark:text-teal-400 counter-val" data-target="65000" data-suffix="+">0</div>
+          <div class="text-[11px] font-bold text-slate-500 dark:text-slate-400 mt-1">CPP Volunteers</div>
+        </div>
+      </div>
+
+      <!-- Core Story Flow Card -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="reveal-card glass-panel rounded-3xl p-6">
+          <h2 class="text-lg font-black mb-4 flex items-center gap-2">🧭 The Core Ecological Narrative</h2>
+          <div class="space-y-2">
+            <div class="p-3 rounded-xl bg-teal-500/10 border border-teal-500/20 text-center font-bold text-xs text-teal-700 dark:text-teal-300">Monsoon Climate & Deltaic Geography</div>
+            <div class="text-center text-teal-500 font-black text-sm">↓</div>
+            <div class="p-3 rounded-xl bg-teal-500/10 border border-teal-500/20 text-center font-bold text-xs text-teal-700 dark:text-teal-300">Climate Change Pressure (Temp + Sea Level)</div>
+            <div class="text-center text-teal-500 font-black text-sm">↓</div>
+            <div class="p-3 rounded-xl bg-teal-500/10 border border-teal-500/20 text-center font-bold text-xs text-teal-700 dark:text-teal-300">Hazards (Floods, Cyclones, Salinity)</div>
+            <div class="text-center text-teal-500 font-black text-sm">↓</div>
+            <div class="p-3 rounded-xl bg-teal-500/10 border border-teal-500/20 text-center font-bold text-xs text-teal-700 dark:text-teal-300">Socio-Ecological Impacts & Adaptation</div>
+          </div>
+        </div>
+
+        <div class="reveal-card glass-panel rounded-3xl p-6 flex flex-col justify-between">
+          <div>
+            <h2 class="text-lg font-black mb-3">📌 Key Subject Pillars</h2>
+            <div class="space-y-2.5 text-xs text-slate-600 dark:text-slate-300">
+              <div class="p-2.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border-l-4 border-teal-500"><strong>Climate System:</strong> Temp shifts, rainfall variability, sea-level rise scenarios.</div>
+              <div class="p-2.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border-l-4 border-sky-500"><strong>Physical Delta:</strong> River networks, floodplains, wetlands, & estuaries.</div>
+              <div class="p-2.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border-l-4 border-amber-500"><strong>Hazards & Events:</strong> Historical floods (1988, 1998) and cyclones (Sidr, Aila).</div>
+              <div class="p-2.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/80 border-l-4 border-emerald-500"><strong>Biodiversity & Flora:</strong> Sundarbans mangroves, 6,000+ plants, fauna loss.</div>
+            </div>
+          </div>
+          <button onclick="goPage('revision')" class="mt-4 w-full py-2.5 rounded-xl bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-extrabold text-xs hover:opacity-90 transition">Jump to Key Numbers Deck →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Climate & Change -->
+    <section id="page-climate" class="page-view space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-black">☁ Climate & Climate Change</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Temperature trends, rainfall patterns, sea level scenarios, and delta geography.</p>
+        </div>
+        <button onclick="goPage('home')" class="px-3 py-1.5 rounded-xl glass-panel text-xs font-bold">← Back</button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h2 class="text-base font-extrabold mb-3 text-teal-600 dark:text-teal-400">1. Climate of Bangladesh</h2>
+          <div class="space-y-2 text-xs">
+            <p class="p-3 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">Bangladesh features a <strong>tropical monsoon climate</strong> driven by seasonal wind reversals and heavy precipitation.</p>
+            <p class="p-3 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">Rainfall distribution is highly variable across both <strong>spatial regions</strong> and <strong>seasonal timings</strong>, with the bulk arriving during monsoon months.</p>
+            <p class="p-3 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">Temperature and rainfall changes directly affect agriculture, fisheries, livestock, freshwater availability, settlements, and natural ecosystems.</p>
+          </div>
+        </div>
+
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h2 class="text-base font-extrabold mb-3 text-teal-600 dark:text-teal-400">2. Temperature Shifts</h2>
+          <div class="space-y-2 text-xs">
+            <p class="p-3 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">Projections show warming across <strong>all seasons</strong>, with <strong>winter warming</strong> often projected to be proportionately higher.</p>
+            <p class="p-3 rounded-xl bg-teal-500/10 border border-teal-500/20 font-bold text-teal-800 dark:text-teal-300">Projected Temperature Rise: +1.0°C by 2030</p>
+            <p class="p-3 rounded-xl bg-teal-500/10 border border-teal-500/20 font-bold text-teal-800 dark:text-teal-300">Long-term Target Scenario: Up to +2.4°C by 2100</p>
+          </div>
+        </div>
+
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h2 class="text-base font-extrabold mb-3 text-teal-600 dark:text-teal-400">3. Rainfall Patterns</h2>
+          <div class="space-y-2 text-xs">
+            <p class="p-3 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">Climate models consistently forecast an <strong>increase in monsoon rainfall volume</strong> and intensity.</p>
+            <p class="p-3 rounded-xl bg-sky-500/10 border border-sky-500/20 font-bold text-sky-800 dark:text-sky-300">Monsoon Rainfall Projection: +5% to +12% increase by mid-century.</p>
+            <p class="p-3 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">In contrast, winter precipitation is expected to show little change or a slight decrease, heightening dry season moisture stress.</p>
+          </div>
+        </div>
+
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h2 class="text-base font-extrabold mb-3 text-teal-600 dark:text-teal-400">4. Sea-Level Rise & Delta Topography</h2>
+          <div class="space-y-2 text-xs">
+            <p class="p-3 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">Predominantly a <strong>low-lying deltaic nation</strong>, much of Bangladesh consists of flat, low-elevation river floodplains.</p>
+            <p class="p-3 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">National scenarios estimate a sea level rise of <strong>tens of centimetres during 2050–2100</strong>.</p>
+            <p class="p-3 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">Impacts include intensified coastal inundation, inland salinity migration, and river drainage congestion via the backwater effect.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hazards & Events -->
+    <section id="page-hazards" class="page-view space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-black">⚠ Hazards & Historical Events</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Floods, historical timelines, cyclones, salinity intrusion, and seismic dynamics.</p>
+        </div>
+        <button onclick="goPage('home')" class="px-3 py-1.5 rounded-xl glass-panel text-xs font-bold">← Back</button>
+      </div>
+
+      <!-- Flood Timeline Section -->
+      <div class="reveal-card glass-panel rounded-3xl p-6">
+        <h2 class="text-lg font-black mb-4 text-teal-600 dark:text-teal-400">🌊 Major Historical Floods Timeline</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div class="p-4 rounded-2xl bg-slate-100/80 dark:bg-slate-800/80 border-t-4 border-sky-500">
+            <div class="text-lg font-black text-sky-600 dark:text-sky-400">1987 Flood</div>
+            <div class="text-xs mt-1 space-y-1 text-slate-600 dark:text-slate-300">
+              <div>• <strong>40%</strong> country underwater</div>
+              <div>• <strong>880 deaths</strong></div>
+              <div>• <strong>US$1 Billion</strong> damages</div>
+            </div>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-100/80 dark:bg-slate-800/80 border-t-4 border-sky-600">
+            <div class="text-lg font-black text-sky-600 dark:text-sky-400">1988 Flood</div>
+            <div class="text-xs mt-1 space-y-1 text-slate-600 dark:text-slate-300">
+              <div>• <strong>60%</strong> country underwater</div>
+              <div>• <strong>5 Million</strong> displaced</div>
+            </div>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-100/80 dark:bg-slate-800/80 border-t-4 border-teal-500">
+            <div class="text-lg font-black text-teal-600 dark:text-teal-400">1998 Flood</div>
+            <div class="text-xs mt-1 space-y-1 text-slate-600 dark:text-slate-300">
+              <div>• <strong>75%</strong> underwater</div>
+              <div>• <strong>1,000 deaths</strong></div>
+              <div>• <strong>30 Million</strong> displaced</div>
+            </div>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-100/80 dark:bg-slate-800/80 border-t-4 border-teal-600">
+            <div class="text-lg font-black text-teal-600 dark:text-teal-400">2004 Flood</div>
+            <div class="text-xs mt-1 space-y-1 text-slate-600 dark:text-slate-300">
+              <div>• <strong>66%</strong> country underwater</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Cyclones Card -->
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h2 class="text-base font-extrabold mb-3 text-amber-600 dark:text-amber-400">🌀 Cyclones & Storm Surges</h2>
+          <div class="space-y-2 text-xs">
+            <div class="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20"><strong>1991 Cyclone:</strong> US$1.78 Billion damage; 247,000 tons cereal crop lost.</div>
+            <div class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/70"><strong>May 2007:</strong> US$982 Million in damages.</div>
+            <div class="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20"><strong>Nov 2007 (Sidr):</strong> ~3,500 lives lost.</div>
+            <div class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/70"><strong>May 2009 (Aila):</strong> ~150 deaths; 200,000 houses destroyed.</div>
+            <div class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/70"><strong>May 2013 Cyclone:</strong> ~1.3 Million people displaced.</div>
+          </div>
+        </div>
+
+        <!-- Drought, Landslide & Earthquake Card -->
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h2 class="text-base font-extrabold mb-3 text-teal-600 dark:text-teal-400">🌄 Droughts, Landslides & Earthquakes</h2>
+          <div class="space-y-2 text-xs">
+            <div class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">
+              <strong>Drought & Salinity:</strong> Mainly impacts northwestern regions. Sea-level rise forces seawater up the <strong>Meghna Estuary</strong>, corrupting freshwater aquifers.
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">
+              <strong>June 2007 Landslide:</strong> Triggered by extreme rainfall in Chittagong, resulting in <strong>128 deaths</strong> and over <strong>8,000 displaced</strong>.
+            </div>
+            <div class="p-2.5 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-900 dark:text-rose-300">
+              <strong>Seismic Risk:</strong> Subduction zone beneath the <strong>Indo-Burman Ranges</strong> has potential for an earthquake exceeding <strong>8.2 Magnitude</strong>, affecting ~<strong>140 Million</strong> people.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Environmental Impacts -->
+    <section id="page-impacts" class="page-view space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-black">↘ Environmental Impacts</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Agriculture, fisheries, livestock, and health sector risks.</p>
+        </div>
+        <button onclick="goPage('home')" class="px-3 py-1.5 rounded-xl glass-panel text-xs font-bold">← Back</button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h2 class="text-base font-extrabold mb-3 text-teal-600 dark:text-teal-400">🌾 Agriculture & Food Security</h2>
+          <div class="space-y-2 text-xs">
+            <p class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">Floods disrupt transplanting schedules and reduce <strong>Aman</strong> crop acreage.</p>
+            <p class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">Salinity and drought decrease yields across <strong>Aus, Aman, Boro</strong> rice and <strong>wheat</strong>.</p>
+            <p class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">Heat and moisture stress disproportionately affect wheat and various <strong>Rabi crops</strong> during dry months.</p>
+          </div>
+        </div>
+
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h2 class="text-base font-extrabold mb-3 text-teal-600 dark:text-teal-400">🐟 Fisheries & Aquaculture</h2>
+          <div class="space-y-2 text-xs">
+            <p class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">Flooding breaches river embankments, causing pond washouts and escape of cultured stock.</p>
+            <p class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">Storm surges destroy coastal <strong>shrimp gher</strong> enclosures.</p>
+            <p class="p-2.5 rounded-xl bg-rose-500/10 border border-rose-500/20 font-bold text-rose-800 dark:text-rose-300">Water temperatures above 32°C lead to elevated shrimp-fry mortality and trigger toxic algal blooms.</p>
+          </div>
+        </div>
+
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h2 class="text-base font-extrabold mb-3 text-teal-600 dark:text-teal-400">🐄 Livestock Health</h2>
+          <div class="space-y-2 text-xs">
+            <p class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">Cyclones and extended floods cause direct mortality and disease outbreaks (e.g., anthrax, foot-and-mouth).</p>
+            <p class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">Drought reduces fodder and drinking water availability, diminishing milk output and draught capacity.</p>
+          </div>
+        </div>
+
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h2 class="text-base font-extrabold mb-3 text-teal-600 dark:text-teal-400">🏥 Human Health Risks</h2>
+          <div class="space-y-2 text-xs">
+            <p class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">Outbreaks of <strong>cholera, diarrheal diseases, dengue, and malaria</strong> linked to flooded water contamination and stagnant mosquito breeding sites.</p>
+            <p class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">Increased incidence of extreme heat stress, mental health trauma, and physical injuries following major disasters.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Flora, Forests & Biodiversity -->
+    <section id="page-biodiversity" class="page-view space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-black">🌿 Flora, Forests & Biodiversity</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Botanical metrics, forest zones, Sundarbans mangrove ecosystem, and economic botany.</p>
+        </div>
+        <button onclick="goPage('home')" class="px-3 py-1.5 rounded-xl glass-panel text-xs font-bold">← Back</button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Plant Metrics -->
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h2 class="text-base font-extrabold mb-3 text-emerald-600 dark:text-emerald-400">🌸 Plant Diversity Metrics</h2>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div class="p-2 rounded-xl bg-emerald-500/10 font-bold text-center">6,000+ Plant Species</div>
+            <div class="p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/70 text-center">3,611 Angiosperms</div>
+            <div class="p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/70 text-center">7 Gymnosperms</div>
+            <div class="p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/70 text-center">250 Pteridophytes</div>
+            <div class="p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/70 text-center">~230 Ferns</div>
+            <div class="p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/70 text-center">250 Bryophytes</div>
+            <div class="p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/70 text-center">~300 Algae / ~275 Fungi</div>
+            <div class="p-2 rounded-xl bg-rose-500/10 border border-rose-500/20 font-bold text-center text-rose-800 dark:text-rose-300">95 Threatened Vascular Plants</div>
+          </div>
+        </div>
+
+        <!-- Forest Zones -->
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h2 class="text-base font-extrabold mb-3 text-emerald-600 dark:text-emerald-400">🌳 Major Forest Ecosystem Zones</h2>
+          <div class="space-y-2 text-xs">
+            <div class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/70"><strong>Mangrove:</strong> Sundarbans (Sundari, Gewa, Possur, Keora, Golpata, Hetal).</div>
+            <div class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/70"><strong>Swamp:</strong> Haor regions in Sylhet & Sunamganj (Hijal, Karanja).</div>
+            <div class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/70"><strong>Plainland Sal:</strong> Bhawal & Madhupur Garh across Dhaka, Tangail, Mymensingh (Sal - Shorea robusta).</div>
+            <div class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/70"><strong>Evergreen / Hill:</strong> CHT & Sylhet (Garjan, Telsur, Chapalish, Chundul, Koroi; 33 Bamboo species - ranked 8th globally).</div>
+          </div>
+        </div>
+
+        <!-- Sundarbans & Economic Botany -->
+        <div class="reveal-card glass-panel rounded-3xl p-5 md:col-span-2">
+          <h2 class="text-base font-extrabold mb-3 text-emerald-600 dark:text-emerald-400">🌾 Economic Botany & Phytogeography</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+            <div class="p-3 rounded-2xl bg-slate-100/70 dark:bg-slate-800/70">
+              <strong class="text-emerald-600 dark:text-emerald-400 block mb-1">Crops & Rankings</strong>
+              • ~10,000 Rice cultivars (4th largest producer globally)<br>
+              • Jute: Ranked <strong>1st globally</strong><br>
+              • Tea: Ranked <strong>9th globally</strong><br>
+              • Vegetables: 4th largest producer globally
+            </div>
+            <div class="p-3 rounded-2xl bg-slate-100/70 dark:bg-slate-800/70">
+              <strong class="text-emerald-600 dark:text-emerald-400 block mb-1">Medicinal Plants</strong>
+              450–500 species utilized in Ayurvedic, Hekimi, and Unani traditions including Tulsi, Basak, Bel, Ada, Rosun, Methi, Neem, Thankuni.
+            </div>
+            <div class="p-3 rounded-2xl bg-slate-100/70 dark:bg-slate-800/70">
+              <strong class="text-emerald-600 dark:text-emerald-400 block mb-1">Hooker (1854) Regions</strong>
+              3 Phytogeographical divisions:<br>
+              1. Gangetic Plain<br>
+              2. Hills<br>
+              3. Mangroves
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fauna & Conservation -->
+    <section id="page-fauna" class="page-view space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-black">🐅 Fauna & Conservation</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Vertebrate statistics, extinct fauna, threatened categories, and protected areas.</p>
+        </div>
+        <button onclick="goPage('home')" class="px-3 py-1.5 rounded-xl glass-panel text-xs font-bold">← Back</button>
+      </div>
+
+      <!-- Vertebrate Counts Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+        <div class="reveal-card glass-panel rounded-2xl p-3 text-center">
+          <div class="text-xl font-black text-amber-600 dark:text-amber-400">653</div>
+          <div class="text-[10px] font-bold text-slate-500">Fish (251 FW + 402 Mar)</div>
+        </div>
+        <div class="reveal-card glass-panel rounded-2xl p-3 text-center">
+          <div class="text-xl font-black text-amber-600 dark:text-amber-400">477</div>
+          <div class="text-[10px] font-bold text-slate-500">Birds (301 Res + 176 Mig)</div>
+        </div>
+        <div class="reveal-card glass-panel rounded-2xl p-3 text-center">
+          <div class="text-xl font-black text-amber-600 dark:text-amber-400">126</div>
+          <div class="text-[10px] font-bold text-slate-500">Reptiles (109 Inland)</div>
+        </div>
+        <div class="reveal-card glass-panel rounded-2xl p-3 text-center">
+          <div class="text-xl font-black text-amber-600 dark:text-amber-400">113</div>
+          <div class="text-[10px] font-bold text-slate-500">Mammals (110 Inland)</div>
+        </div>
+        <div class="reveal-card glass-panel rounded-2xl p-3 text-center col-span-2 sm:col-span-1">
+          <div class="text-xl font-black text-amber-600 dark:text-amber-400">34</div>
+          <div class="text-[10px] font-bold text-slate-500">Amphibians</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Extinct Fauna -->
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h2 class="text-base font-extrabold mb-3 text-rose-600 dark:text-rose-400">🦤 Extinct Vertebrates (12 Lost Species)</h2>
+          <div class="text-xs space-y-1 text-slate-700 dark:text-slate-300 p-3 rounded-xl bg-rose-500/10 border border-rose-500/20">
+            One-horned Rhinoceros, Javan Rhinoceros, Asiatic Two-horned Rhinoceros, Gaur, Banteng, Wild Buffalo, Nilgai, Swamp Deer, Wolf, Pink-headed Duck, Common Peafowl, Marsh/Swamp Crocodile.
+          </div>
+        </div>
+
+        <!-- Threatened Percentage breakdown -->
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h2 class="text-base font-extrabold mb-3 text-amber-600 dark:text-amber-400">⚠️ Threatened Species Breakdown</h2>
+          <div class="space-y-1.5 text-xs">
+            <div class="flex justify-between p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/70"><span>Freshwater Fish:</span><strong>59 species (23%)</strong></div>
+            <div class="flex justify-between p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/70"><span>Amphibians:</span><strong>10 species (20%)</strong></div>
+            <div class="flex justify-between p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/70"><span>Reptiles:</span><strong>38 species (23%)</strong></div>
+            <div class="flex justify-between p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/70"><span>Birds:</span><strong>39 species (7%)</strong></div>
+            <div class="flex justify-between p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/70"><span>Mammals:</span><strong>36 species (26%)</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Health, Settlements & Livelihoods -->
+    <section id="page-society" class="page-view space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-black">🏘 Health, Settlements & Livelihoods</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Infrastructure damage, asset loss, and ecological displacement.</p>
+        </div>
+        <button onclick="goPage('home')" class="px-3 py-1.5 rounded-xl glass-panel text-xs font-bold">← Back</button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h2 class="text-base font-extrabold mb-3 text-teal-600 dark:text-teal-400">🏗 Infrastructure Damage</h2>
+          <p class="text-xs leading-relaxed text-slate-600 dark:text-slate-300 p-3 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">
+            Recurrent floods and cyclones damage critical arterial roads, bridges, embankments, educational institutions, commercial markets, health centers, and telecommunication lines—leading to elevated maintenance overheads and economic disruptions.
+          </p>
+        </div>
+
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h2 class="text-base font-extrabold mb-3 text-teal-600 dark:text-teal-400">⛵ Livelihoods & Ecological Migration</h2>
+          <p class="text-xs leading-relaxed text-slate-600 dark:text-slate-300 p-3 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">
+            Resource-dependent livelihoods in agriculture, fisheries, and day labor endure severe asset shocks. Repeated property losses force vulnerable households into cycle debt and drive rural-to-urban displacement, creating "ecological refugees".
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Adaptation & Management -->
+    <section id="page-adaptation" class="page-view space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-black">◈ Adaptation & Management</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Targeted strategic interventions across sectors.</p>
+        </div>
+        <button onclick="goPage('home')" class="px-3 py-1.5 rounded-xl glass-panel text-xs font-bold">← Back</button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h3 class="font-extrabold text-sm mb-2 text-sky-600 dark:text-sky-400">🌊 Water & Floods</h3>
+          <ul class="text-xs space-y-1 text-slate-600 dark:text-slate-300 list-disc pl-4">
+            <li>Re-excavate rivers & khals</li>
+            <li>Dredging & drainage structure repair</li>
+            <li>Flood-proof critical infrastructure</li>
+            <li>Community-based warning systems</li>
+          </ul>
+        </div>
+
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h3 class="font-extrabold text-sm mb-2 text-amber-600 dark:text-amber-400">☀️ Drought & Salinity</h3>
+          <ul class="text-xs space-y-1 text-slate-600 dark:text-slate-300 list-disc pl-4">
+            <li>Re-excavate ponds & reservoirs</li>
+            <li>Surface & groundwater conjunctive use</li>
+            <li>Push salinity front seaward with dry-season flow</li>
+            <li>Desalination & saline-free drinking water</li>
+          </ul>
+        </div>
+
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h3 class="font-extrabold text-sm mb-2 text-emerald-600 dark:text-emerald-400">🌱 Agriculture & Health</h3>
+          <ul class="text-xs space-y-1 text-slate-600 dark:text-slate-300 list-disc pl-4">
+            <li>Saline, flood, drought tolerant crop strains</li>
+            <li>Cropping calendar adjustments</li>
+            <li>Vector control & water treatment capacity</li>
+            <li>Target poor community health infrastructure</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disaster Preparedness -->
+    <section id="page-institutions" class="page-view space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-black">◎ Disaster Preparedness Framework</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Governmental bodies, legal frameworks, and early warning technology.</p>
+        </div>
+        <button onclick="goPage('home')" class="px-3 py-1.5 rounded-xl glass-panel text-xs font-bold">← Back</button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h2 class="text-base font-extrabold mb-3 text-teal-600 dark:text-teal-400">🏛 Institutional Structure</h2>
+          <div class="space-y-2 text-xs">
+            <div class="p-3 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">
+              <strong>Ministry of Disaster Management & Relief:</strong> Established in <strong>1972</strong> for policy & budget allocation.
+            </div>
+            <div class="p-3 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">
+              <strong>National Disaster Management Council (NDMC):</strong> Apex leadership headed directly by the <strong>Prime Minister</strong>.
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal-card glass-panel rounded-3xl p-5">
+          <h2 class="text-base font-extrabold mb-3 text-teal-600 dark:text-teal-400">📡 Early Warning & Volunteer Force</h2>
+          <div class="space-y-2 text-xs">
+            <div class="p-3 rounded-xl bg-teal-500/10 border border-teal-500/20 font-bold">
+              Cyclone Preparedness Programme (CPP): 65,000+ trained volunteers.
+            </div>
+            <div class="p-3 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">
+              <strong>SERVIR Satellite System:</strong> Successfully achieved flood forecasting <strong>8 days in advance</strong> across 9 basin locations in 2014.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Drill & Flashcard Deck Page -->
+    <section id="page-interactive" class="page-view space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-black">🎮 Interactive Drill & Flashcard Deck</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Test your knowledge with flip cards and dynamic revision questions.</p>
+        </div>
+        <button onclick="goPage('home')" class="px-3 py-1.5 rounded-xl glass-panel text-xs font-bold">← Back</button>
+      </div>
+
+      <!-- Flashcards Flip Mode -->
+      <div class="reveal-card glass-panel rounded-3xl p-6 text-center space-y-4">
+        <div class="flex items-center justify-between text-xs font-bold text-slate-400">
+          <span>FLASHCARD MODE</span>
+          <span id="card-counter">1 / 27</span>
+        </div>
+
+        <div class="perspective-1000 w-full max-w-md mx-auto h-52 cursor-pointer" onclick="flipCard(this)">
+          <div id="flashcard-inner" class="transform-style-3d relative w-full h-full rounded-2xl glass-panel p-6 flex flex-col items-center justify-center border-2 border-teal-500/30 shadow-xl">
+            <!-- Front -->
+            <div class="backface-hidden absolute inset-0 flex flex-col items-center justify-center p-6">
+              <span class="text-xs font-bold text-teal-600 dark:text-teal-400 uppercase tracking-widest mb-2">Question / Number</span>
+              <h3 id="card-front-text" class="text-3xl font-black text-slate-900 dark:text-white">+1.0°C</h3>
+              <p class="text-[10px] text-slate-400 mt-4">(Tap to reveal answer)</p>
+            </div>
+            <!-- Back -->
+            <div class="backface-hidden rotate-y-180 absolute inset-0 flex flex-col items-center justify-center p-6 bg-teal-600 text-white rounded-2xl">
+              <span class="text-xs font-bold text-teal-200 uppercase tracking-widest mb-2">Answer / Context</span>
+              <p id="card-back-text" class="text-sm font-extrabold">Projected temperature increase by 2030</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-center gap-3 pt-2">
+          <button onclick="prevCard()" class="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-xs font-bold">← Previous</button>
+          <button onclick="nextCard()" class="px-4 py-2 rounded-xl bg-teal-500 text-slate-950 font-extrabold text-xs">Next Card →</button>
+        </div>
+      </div>
+
+      <!-- Quick Self Quiz Drill -->
+      <div class="reveal-card glass-panel rounded-3xl p-6">
+        <h2 class="text-lg font-black mb-3">⚡ Quick Knowledge Check</h2>
+        <div id="quiz-container" class="space-y-4">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Memorization Numbers Page -->
+    <section id="page-revision" class="page-view space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-black">✦ Quick Memorization Sheet</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Complete statistical values to memorize for exam readiness.</p>
+        </div>
+        <button onclick="goPage('home')" class="px-3 py-1.5 rounded-xl glass-panel text-xs font-bold">← Back</button>
+      </div>
+
+      <div class="reveal-card glass-panel rounded-3xl p-6">
+        <h2 class="text-lg font-black mb-4 text-teal-600 dark:text-teal-400">🔥 Key Figures & Metrics</h2>
+        <div id="numbers-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Mobile Bottom Navigation Bar -->
+<nav class="lg:hidden fixed bottom-0 left-0 right-0 z-40 glass-nav border-t border-slate-200/50 dark:border-slate-800/50 px-3 py-2 flex justify-around items-center">
+  <button onclick="goPage('home')" class="nav-btn-mob flex flex-col items-center gap-0.5 text-slate-500 dark:text-slate-400" data-page="home">
+    <span class="text-lg">⌂</span><span class="text-[9px] font-bold">Home</span>
+  </button>
+  <button onclick="goPage('climate')" class="nav-btn-mob flex flex-col items-center gap-0.5 text-slate-500 dark:text-slate-400" data-page="climate">
+    <span class="text-lg">☁</span><span class="text-[9px] font-bold">Climate</span>
+  </button>
+  <button onclick="goPage('hazards')" class="nav-btn-mob flex flex-col items-center gap-0.5 text-slate-500 dark:text-slate-400" data-page="hazards">
+    <span class="text-lg">⚠</span><span class="text-[9px] font-bold">Hazards</span>
+  </button>
+  <button onclick="goPage('interactive')" class="nav-btn-mob flex flex-col items-center gap-0.5 text-slate-500 dark:text-slate-400" data-page="interactive">
+    <span class="text-lg">🎮</span><span class="text-[9px] font-bold">Drills</span>
+  </button>
+  <button onclick="toggleMobileDrawer()" class="flex flex-col items-center gap-0.5 text-slate-500 dark:text-slate-400">
+    <span class="text-lg">☰</span><span class="text-[9px] font-bold">Menu</span>
+  </button>
+</nav>
+
+<!-- Mobile Slide-out Drawer Navigation -->
+<div id="mobile-drawer" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm hidden transition-opacity duration-300" onclick="toggleMobileDrawer()">
+  <div class="w-72 h-full glass-panel p-5 overflow-y-auto space-y-2 ml-auto bg-white dark:bg-slate-900" onclick="event.stopPropagation()">
+    <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
+      <span class="font-extrabold text-sm">Navigation Drawer</span>
+      <button onclick="toggleMobileDrawer()" class="text-slate-400 text-lg">✕</button>
+    </div>
+    <div class="space-y-1 pt-2">
+      <button onclick="goPage('home'); toggleMobileDrawer()" class="w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-teal-950/40">⌂ Overview</button>
+      <button onclick="goPage('climate'); toggleMobileDrawer()" class="w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-teal-950/40">☁ Climate & Change</button>
+      <button onclick="goPage('hazards'); toggleMobileDrawer()" class="w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-teal-950/40">⚠ Hazards & Events</button>
+      <button onclick="goPage('impacts'); toggleMobileDrawer()" class="w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-teal-950/40">↘ Environmental Impacts</button>
+      <button onclick="goPage('biodiversity'); toggleMobileDrawer()" class="w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-teal-950/40">🌿 Flora & Forests</button>
+      <button onclick="goPage('fauna'); toggleMobileDrawer()" class="w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-teal-950/40">🐅 Fauna & Conservation</button>
+      <button onclick="goPage('society'); toggleMobileDrawer()" class="w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-teal-950/40">🏘 Health & Livelihoods</button>
+      <button onclick="goPage('adaptation'); toggleMobileDrawer()" class="w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-teal-950/40">◈ Adaptation & Management</button>
+      <button onclick="goPage('institutions'); toggleMobileDrawer()" class="w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-teal-950/40">◎ Disaster Preparedness</button>
+      <button onclick="goPage('interactive'); toggleMobileDrawer()" class="w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-teal-950/40">🎮 Interactive Drill Deck</button>
+      <button onclick="goPage('revision'); toggleMobileDrawer()" class="w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-teal-950/40">✦ Quick Memorization</button>
+    </div>
+  </div>
+</div>
+
+<!-- Footer Attribution -->
+<footer class="mt-12 text-center text-xs text-slate-400 py-6 border-t border-slate-200/50 dark:border-slate-800/50">
+  <p>Climate & Environment Study Atlas of Bangladesh</p>
+  <p class="mt-1 font-semibold text-slate-500">Md. Sayem Chowdhury</p>
+</footer>
+
+<script>
+// Key Numbers Dataset
+const nums = [
+  ["+1.0°C", "projected temperature increase by 2030"],
+  ["+2.4°C", "projected temperature increase by 2100"],
+  ["+5–12%", "projected monsoon rainfall increase by mid-century"],
+  ["2050–2100", "projected sea-level rise period of tens of cm"],
+  ["75%", "country underwater in the 1998 flood"],
+  ["30 million", "people displaced in the 1998 flood"],
+  ["3,500", "deaths in Cyclone Sidr, 2007"],
+  ["200,000", "houses destroyed by Cyclone Aila, 2009"],
+  ["1.3 million", "people displaced in the 2013 cyclone"],
+  [">32°C", "temperature associated with increased shrimp-fry mortality"],
+  ["6,000+", "plant species"],
+  ["3,611", "angiosperms"],
+  ["1,403", "vertebrate species"],
+  ["653", "fish species"],
+  ["477", "bird species"],
+  ["113", "mammal species"],
+  ["34", "amphibian species"],
+  ["126", "reptile species"],
+  ["95", "threatened vascular plants"],
+  ["12", "recorded vertebrate fauna lost"],
+  ["200", "estimated wild Royal Bengal Tigers"],
+  ["450–500", "medicinal plant species"],
+  ["33", "bamboo species"],
+  ["65,000+", "CPP volunteers"],
+  ["8 days", "SERVIR forecast lead time"],
+  ["1972", "Ministry of Disaster Management established"],
+  ["1854", "Hooker's phytogeographical classification"]
+];
+
+// Interactive Quiz Questions
+const quizQuestions = [
+  {
+    q: "What is the projected temperature rise for Bangladesh by 2030?",
+    options: ["+0.5°C", "+1.0°C", "+2.4°C", "+3.0°C"],
+    a: 1
+  },
+  {
+    q: "How many vertebrate species have been lost in Bangladesh over the past century?",
+    options: ["5", "8", "12", "20"],
+    a: 2
+  },
+  {
+    q: "What percentage of Bangladesh was underwater during the peak of the 1998 flood?",
+    options: ["40%", "60%", "66%", "75%"],
+    a: 3
+  },
+  {
+    q: "How many volunteers are trained under the Cyclone Preparedness Programme (CPP)?",
+    options: ["10,000+", "35,000+", "65,000+", "100,000+"],
+    a: 2
+  }
+];
+
+let currentCardIndex = 0;
+
+// Theme Switcher Logic
+function setTheme(themeName) {
+  document.documentElement.setAttribute('data-theme', themeName);
+  localStorage.setItem('atlas_theme', themeName);
+  
+  const labelMap = {
+    emerald: ['🌿', 'Emerald'],
+    midnight: ['🌙', 'Midnight'],
+    sunset: ['🌅', 'Sunset'],
+    parchment: ['📜', 'Parchment']
+  };
+  
+  if (labelMap[themeName]) {
+    document.getElementById('theme-icon').textContent = labelMap[themeName][0];
+    document.getElementById('theme-label').textContent = labelMap[themeName][1];
+  }
+}
+
+// Navigation System
+function goPage(pageId) {
+  document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById(`page-${pageId}`);
+  if (target) {
+    target.classList.add('active');
+  }
+
+  // Update nav button active states
+  document.querySelectorAll('.nav-btn, .nav-btn-mob').forEach(btn => {
+    if (btn.dataset.page === pageId) {
+      btn.classList.add('bg-teal-500/20', 'text-teal-600', 'font-black');
+    } else {
+      btn.classList.remove('bg-teal-500/20', 'text-teal-600', 'font-black');
+    }
+  });
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  triggerScrollReveals();
+}
+
+// Mobile Drawer Toggle
+function toggleMobileDrawer() {
+  const drawer = document.getElementById('mobile-drawer');
+  drawer.classList.toggle('hidden');
+}
+
+// Search Logic
+function clearSearch() {
+  document.getElementById('global-search').value = '';
+  document.getElementById('clear-search').classList.add('hidden');
+}
+
+document.getElementById('global-search').addEventListener('input', (e) => {
+  const val = e.target.value.toLowerCase().trim();
+  const clearBtn = document.getElementById('clear-search');
+  
+  if (val.length > 0) {
+    clearBtn.classList.remove('hidden');
+  } else {
+    clearBtn.classList.add('hidden');
+  }
+
+  // Live filter cards across pages
+  document.querySelectorAll('.reveal-card').forEach(card => {
+    if (val === '' || card.innerText.toLowerCase().includes(val)) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+});
+
+// Flashcard Operations
+function updateCard() {
+  const inner = document.getElementById('flashcard-inner');
+  inner.classList.remove('rotate-y-180');
+  
+  setTimeout(() => {
+    document.getElementById('card-front-text').textContent = nums[currentCardIndex][0];
+    document.getElementById('card-back-text').textContent = nums[currentCardIndex][1];
+    document.getElementById('card-counter').textContent = `${currentCardIndex + 1} / ${nums.length}`;
+  }, 150);
+}
+
+function flipCard(el) {
+  const inner = el.querySelector('#flashcard-inner');
+  inner.classList.toggle('rotate-y-180');
+}
+
+function nextCard() {
+  currentCardIndex = (currentCardIndex + 1) % nums.length;
+  updateCard();
+}
+
+function prevCard() {
+  currentCardIndex = (currentCardIndex - 1 + nums.length) % nums.length;
+  updateCard();
+}
+
+// Populate Quiz
+function renderQuiz() {
+  const container = document.getElementById('quiz-container');
+  container.innerHTML = quizQuestions.map((q, qIdx) => `
+    <div class="p-4 rounded-2xl bg-slate-100/70 dark:bg-slate-800/70 space-y-2 text-xs">
+      <p class="font-bold text-slate-800 dark:text-slate-100">${qIdx + 1}. ${q.q}</p>
+      <div class="grid grid-cols-2 gap-2">
+        ${q.options.map((opt, oIdx) => `
+          <button onclick="checkAnswer(${qIdx}, ${oIdx}, this)" class="p-2 rounded-xl bg-white dark:bg-slate-700 text-left font-semibold border border-slate-200 dark:border-slate-600 hover:border-teal-500 transition">${opt}</button>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function checkAnswer(qIdx, selectedIdx, btn) {
+  const correct = quizQuestions[qIdx].a;
+  const parent = btn.parentElement;
+  
+  Array.from(parent.children).forEach(child => child.disabled = true);
+  
+  if (selectedIdx === correct) {
+    btn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-500');
+  } else {
+    btn.classList.add('bg-rose-500', 'text-white', 'border-rose-500');
+    parent.children[correct].classList.add('bg-emerald-500', 'text-white');
+  }
+}
+
+// Populate Revision Numbers
+function renderNumbers() {
+  const grid = document.getElementById('numbers-grid');
+  grid.innerHTML = nums.map(n => `
+    <div class="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/70 flex items-center gap-2">
+      <span class="px-2 py-1 rounded-lg bg-teal-500/20 text-teal-700 dark:text-teal-300 font-extrabold text-xs whitespace-nowrap">${n[0]}</span>
+      <span class="text-slate-600 dark:text-slate-300">${n[1]}</span>
+    </div>
+  `).join('');
+}
+
+// Intersection Observer for Card Reveal & Reading Progress
+function triggerScrollReveals() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.page-view.active .reveal-card').forEach(card => observer.observe(card));
+}
+
+window.addEventListener('scroll', () => {
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('progress-bar').style.width = scrolled + '%';
+});
+
+// Delta River Canvas Animation
+function initRiverCanvas() {
+  const canvas = document.getElementById('river-canvas');
+  const ctx = canvas.getContext('2d');
+  
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  let step = 0;
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    step += 0.008;
+
+    for (let i = 0; i < 3; i++) {
+      ctx.beginPath();
+      ctx.lineWidth = 2 + i * 2;
+      ctx.strokeStyle = i % 2 === 0 ? 'rgba(13, 148, 136, 0.12)' : 'rgba(2, 132, 199, 0.12)';
+      
+      for (let x = 0; x < canvas.width; x += 20) {
+        const y = Math.sin(x * 0.003 + step + i) * 40 + Math.cos(x * 0.001 + step) * 20 + (canvas.height / 3) * (i + 1);
+        if (x === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+    requestAnimationFrame(animate);
+  }
+  animate();
+}
+
+// Counter Increment Animation
+function animateCounters() {
+  document.querySelectorAll('.counter-val').forEach(el => {
+    const target = parseFloat(el.dataset.target);
+    const suffix = el.dataset.suffix;
+    let current = 0;
+    const step = target / 40;
+    
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = (target % 1 !== 0 ? current.toFixed(1) : Math.floor(current)) + suffix;
+    }, 25);
+  });
+}
+
+// Touch Swipe Gesture Navigation
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', e => {
+  touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener('touchend', e => {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const diff = touchEndX - touchStartX;
+  if (Math.abs(diff) > 90) {
+    const pages = ['home', 'climate', 'hazards', 'impacts', 'biodiversity', 'fauna', 'society', 'adaptation', 'institutions', 'interactive', 'revision'];
+    const currentPageId = document.querySelector('.page-view.active').id.replace('page-', '');
+    let idx = pages.indexOf(currentPageId);
+    
+    if (diff < 0 && idx < pages.length - 1) {
+      goPage(pages[idx + 1]);
+    } else if (diff > 0 && idx > 0) {
+      goPage(pages[idx - 1]);
+    }
+  }
+}
+
+// Initialization
+window.onload = () => {
+  const savedTheme = localStorage.getItem('atlas_theme') || 'emerald';
+  setTheme(savedTheme);
+  
+  renderQuiz();
+  renderNumbers();
+  updateCard();
+  triggerScrollReveals();
+  initRiverCanvas();
+  animateCounters();
+};
+</script>
+</body>
+</html>
